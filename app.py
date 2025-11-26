@@ -220,7 +220,7 @@ def main():
             border-radius: 18px;
             background: radial-gradient(circle at top left, #213b72 0%, #050B14 60%);
             color: #ffffff;
-            margin-bottom: 1.8rem;
+            margin-bottom: 1.4rem;
             display: flex;
             flex-direction: column;
             gap: 0.35rem;
@@ -238,22 +238,22 @@ def main():
         }
 
         .search-panel {
-            padding: 1rem 1.25rem;
+            padding: 0.9rem 1.1rem;
             border-radius: 18px;
             background: #0B1220;
             color: #ffffff;
             box-shadow: 0 14px 30px rgba(15,23,42,0.25);
         }
         .search-panel h4 {
-            margin-bottom: 0.6rem;
+            margin-bottom: 0.4rem;
         }
 
         .card {
-            padding: 1.4rem 1.6rem;
-            border-radius: 22px;
+            padding: 0.9rem 1.1rem;      /* กระชับลง */
+            border-radius: 18px;
             border: 1px solid #E2E8F0;
-            box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
-            margin-bottom: 1.6rem;
+            box-shadow: 0 12px 28px rgba(15, 23, 42, 0.06);
+            margin-bottom: 1.0rem;       /* ระยะห่างการ์ดต่อการ์ด */
             background-color: #ffffff;
         }
 
@@ -278,7 +278,12 @@ def main():
         .subheading {
             font-size: 0.95rem;
             color: #6B7280;
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.15rem;      /* เดิมเยอะกว่านี้ */
+        }
+
+        .card hr {
+            margin: 0.35rem 0 0.55rem 0;
+            border-color: #E5E7EB;
         }
 
         .stRadio > div[role="radiogroup"] {
@@ -405,6 +410,7 @@ def main():
                         unsafe_allow_html=True,
                     )
 
+                # --- Basic info ---
                 st.markdown("**ข้อมูลหลัก (Basic Info)**")
                 c1, c2 = st.columns(2)
                 with c1:
@@ -443,8 +449,13 @@ def main():
                         unsafe_allow_html=True,
                     )
 
-                st.markdown("---")
+                # เส้นคั่นแบบ margin สั้น
+                st.markdown(
+                    "<hr style='margin:0.35rem 0 0.55rem 0; border-color:#E5E7EB;'/>",
+                    unsafe_allow_html=True,
+                )
 
+                # --- Description ---
                 st.markdown("**คำอธิบาย / Description**")
                 th = row.get("Description (TH)", "")
                 en = row.get("Description (EN)", "")
@@ -465,8 +476,12 @@ def main():
                         unsafe_allow_html=True,
                     )
 
-                st.markdown("---")
+                st.markdown(
+                    "<hr style='margin:0.35rem 0 0.55rem 0; border-color:#E5E7EB;'/>",
+                    unsafe_allow_html=True,
+                )
 
+                # --- China Recommendation ---
                 st.markdown("**China Recommendation**")
                 st.markdown(
                     f"<span class='field-label'>CN Product Name:</span> {row.get('CN Product Name', '')}",
